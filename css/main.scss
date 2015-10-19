@@ -13,3 +13,10 @@
 .navbar { border-radius: 0; }
 
 .serif { font-family: $font-family-serif; }
+
+#navbar-main {
+
+	border-top: 5px solid $brand-primary-dark;
+	// border-bottom: 5px solid $brand-primary-dark;
+
+}
