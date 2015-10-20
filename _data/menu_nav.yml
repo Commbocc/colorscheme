@@ -14,6 +14,9 @@
     - title: "Location"
       href: "/location/"
       class: 
+    - title: "Event"
+      href: "/event/"
+      class: 
 
 
 
