@@ -1,31 +1,22 @@
-- title: "Link"
-  href: "#"
-  class: 
-
-- title: "Active Link"
-  href: "#"
-  class: "active"
-
 - title: "Sample Templates"
   href: "#"
-  class: 
   subs:
+
+    - title: "Newsroom"
+      href: "/news/"
 
     - title: "Location"
       href: "/location/"
-      class: 
+
     - title: "Event"
       href: "/event/"
-      class: 
-
-
 
 - title: "Example Departments"
   href: "#"
-  class: 
   subs:
 
     - title: "Aging Services"
       href: "/aging/"
-      class: 
 
+- title: "Maps"
+  href: "/maps/"

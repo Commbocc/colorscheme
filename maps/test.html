@@ -1,0 +1,29 @@
+---
+layout: map
+basemap: streets
+---
+
+<script type="text/javascript">
+
+	var hillsborough = L.mapbox.featureLayer('{{site.baseurl}}/maps/json/hillsborough.geojson');
+	var countyCenter = L.mapbox.featureLayer('{{site.baseurl}}/maps/json/county-center.geojson');
+	
+	// var layer = omnivore.kml('{{site.baseurl}}/maps/kmls/test.kml');
+	var jsonLayer = L.mapbox.featureLayer('{{site.baseurl}}/maps/json/map.geojson');
+
+	// addLayer(layer, 'Water', 1);
+	addLayer(hillsborough, 'Hillsborough County', 1);
+	addLayer(countyCenter, 'County Center', 2);
+	addLayer(jsonLayer, 'GeoJSON', 3);
+
+	hillsborough.on('ready', function() {
+		map.fitBounds(hillsborough.getBounds());
+	});
+
+	hillsborough.on('ready', function() {
+		jsonLayer.eachLayer(function(selection) {
+			selection.bindPopup(selection.feature.properties.name);
+		});
+	});
+
+</script>

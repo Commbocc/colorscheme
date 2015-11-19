@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	{% include head.html %}
+	<!-- {#% include scripts.html %} -->
+
+	<script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+
+	<link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet'>
+
+	<style>
+
+		body { margin:0; padding:0; }
+
+		#map { position: absolute; top:0; bottom:0; width:100%; }
+
+		#btn-settings {
+			position: absolute;
+			top: 10px;
+			right:10px;
+			z-index: 1;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<!--
+	streets
+	light
+	dark
+	satellite
+	streets-satellite
+	wheatpaste
+	streets-basic
+	comic
+	outdoors
+	run-bike-hike
+	pencil
+	pirates
+	emerald
+	high-contrast -->
+
+	<!-- Large modal -->
+	<button id="btn-settings" type="button" class="btn btn-xs btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">
+		<i class="fa fa-cog fa-fw"></i>
+	</button>
+
+	<div id="modal-settings" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Map Settings</h4>
+				</div>
+					<nav id="nav-mapbox" class='nav-mapbox list-group'></nav>
+				<!-- <div class="modal-body"></div> -->
+			</div>
+		</div>
+	</div>
+
+	<div id='map'></div>
+
+	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+
+	<script type="text/javascript">
+
+
+		L.mapbox.accessToken = 'pk.eyJ1Ijoia2ptYWdpYzEzIiwiYSI6ImNpZzlpMGo1OTBsd2R1OWtrZjVwcHF0YmgifQ.gk94RmwBZrH90QoP2HHQXA';
+
+		var map = L.mapbox.map('map', 'mapbox.{%if page.basemap%}{{page.basemap}}{%else%}streets{%endif%}')
+		.addControl(L.mapbox.geocoderControl('mapbox.places'))
+		.addControl(L.mapbox.shareControl());
+
+		var layers = document.getElementById('nav-mapbox');
+
+		function addLayer(layer, name, zIndex) {
+			layer
+			.setZIndex(zIndex)
+			.addTo(map);
+
+			var link = document.createElement('a');
+			link.href = '#';
+			link.className = 'list-group-item';
+			link.innerHTML = '<i class="fa fa-check-square fa-fw"></i>&nbsp;' + name;
+
+			link.onclick = function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+
+				if (map.hasLayer(layer)) {
+					map.removeLayer(layer);
+					this.innerHTML = '<i class="fa fa-square fa-fw"></i>&nbsp;' + name;
+				} else {
+					map.addLayer(layer);
+					this.innerHTML = '<i class="fa fa-check-square fa-fw"></i>&nbsp;' + name;
+				}
+			};
+
+			layers.appendChild(link);
+		}
+
+	</script>
+
+
+	{{ content }}
+
+	{% include scripts.html %}
+
+</body>
+</html>

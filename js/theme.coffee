@@ -3,6 +3,12 @@
 
 $ ->
 
+	# beacon
+	$('#btn-open').click (event) ->
+		event.preventDefault()
+		HS.beacon.open()
+		return
+
 	# tooltips
 	$('[data-toggle="tooltip"]').tooltip()
 	$('[data-toggle="popover"]').popover
@@ -26,6 +32,20 @@ $ ->
 		$('html, body').animate { scrollTop: $('#year'+$(this).data('year')).offset().top - 74 }, 1000
 		return
 
+	$('.next-section').click (event) ->
+		event.preventDefault()
+		$('html, body').animate { scrollTop: $(this).closest('section').next().offset().top - 0 }, 1000
+
+	$('.prev-section').click (event) ->
+		event.preventDefault()
+		$('html, body').animate { scrollTop: $(this).closest('section').prev().offset().top - 0 }, 1000
+
+	$('.height-full').each ->
+		winHeight = (window.innerHeight - 0)
+		$(this).css 'min-height', winHeight + 'px'
+		return
+
+
 	# passed meeting dates
 	$('.meeting.media').each ->
 		today = new Date 
@@ -33,4 +53,7 @@ $ ->
 		unless theDate >= today
 			$(this).find('.meeting-rsvp').hide()
 
-
+	# affix width
+	$('.affix').each ->
+		parentWidth = $(this).parent().width()
+		$(this).width parentWidth + 'px'

@@ -13,7 +13,6 @@
 .navbar { border-radius: 0; }
 
 .serif { font-family: $font-family-serif; }
-.panel-heading { font-family: $font-family-serif; }
 
 #navbar-main {
 	border-top: 5px solid $brand-primary-dark;
@@ -47,7 +46,12 @@
 	background-position: center center;
 	// background-attachment: fixed;
 	background-size: cover;
-	background-color: #000;
+	background-color: $brand-primary-dark;
+
+
+	h2 {
+		font-weight: bold;
+	}
 
 	h1 {
 		color: #fff;
@@ -57,6 +61,16 @@
 		margin: 70px auto;
 	}
 
+}
+
+@media (max-width: $screen-xs-max) {
+	.jumbo-heading-image {
+		background-image: none !important;
+
+		img {
+			margin-top: -30px;
+		}
+	}
 }
 
 .container-amenities {
@@ -77,3 +91,36 @@
 	background: linear-gradient(to bottom,  #2d3047 0%,#101935 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d3047', endColorstr='#101935',GradientType=0 ); /* IE6-9 */
 }
+
+.panel-newsroom {
+
+	// .panel-body-container {
+	// 	display: block;
+	// 	text-overflow: ellipsis;
+	// 	overflow: hidden;
+	// 	max-height: 150px;
+	// }
+
+	.panel-thumb {
+		position: relative;
+		margin-bottom: -15px;
+		background: $brand-primary-dark;
+
+		.panel-newsroom-image {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+
+		.panel-category {
+			position: absolute;
+			top: 8px;
+		}
+	}
+}
+
+
+// mapbox nav
+// .nav-mapbox a.active { background: lighten($brand-success, 5%); }
+// .nav-mapbox a.active:hover { background: $brand-success; }

@@ -1,0 +1,47 @@
+---
+layout: default
+permalink: /beacon/
+---
+
+
+<button id="btn-open" class="btn btn-default">Open Beacon</button>
+<button id="btn-o-open" class="btn btn-default">Open Other Beacon</button>
+
+<script>!function(e,o,n){window.HSCW=o,window.HS=n,n.beacon=n.beacon||{};var t=n.beacon;t.userConfig={},t.readyQueue=[],t.config=function(e){this.userConfig=e},t.ready=function(e){this.readyQueue.push(e)},o.config={docs:{enabled:!1,baseUrl:""},contact:{enabled:!0,formId:"b76011e9-823a-11e5-8846-0e599dc12a51"}};var r=e.getElementsByTagName("script")[0],c=e.createElement("script");c.type="text/javascript",c.async=!0,c.src="https://djtflbt20bdde.cloudfront.net/",r.parentNode.insertBefore(c,r)}(document,window.HSCW||{},window.HS||{});</script>
+
+
+<script>
+
+	HS.beacon.config({
+		modal: true,
+		instructions:'Graphic Design Project Request Form.',
+		translation: {
+			subjectLabel: 'New/Reprint/Revision of...',
+			topicLabel: 'Select a Design Type',
+			messageLabel: 'Project Description/Details'
+		},
+		// color: '#cacaca',
+		topics: [
+		{ val: 'brochure-flyer', label: 'Brochure/Flyer' },
+		{ val: 'business-cards', label: 'Business Cards' },
+		{ val: 'envelopes', label: 'Envelopes' },
+		{ val: 'ncr', label: 'NCR Forms' },
+		{ val: 'poster-sign-banner', label: 'Poster/Sign/Banner' },
+		{ val: 'other', label: 'Other...' }
+		],
+		attachment: true,
+		poweredBy: false
+	});
+
+
+	HS.beacon.ready(function() {
+		HS.beacon.suggest([
+			'524db818e4b0c2199a391f34',
+			'525d5a44e4b0a3224aa066b2',
+			'52a603d4e4b010488044bc1a',
+			'545000abe4b07fce1b00cab1'
+			]);
+	});
+
+</script>
+
