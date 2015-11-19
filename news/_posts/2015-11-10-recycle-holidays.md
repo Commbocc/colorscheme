@@ -1,7 +1,6 @@
 ---
 title:  "Holiday Trash Schedule and Recycling"
 url: "#"
-image: "image006.jpg"
 cat: "Category"
 ---
 

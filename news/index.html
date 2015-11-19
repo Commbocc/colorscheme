@@ -21,7 +21,7 @@ permalink: /news/
 					The $2.3 million center honors longtime resident Emanuel P. Johnson
 				</p>
 
-				<a href="#" class="btn btn-default">Read More</a>
+				<a href="#" class="btn btn-danger btn-lg">Read More</a>
 
 			</div>
 
@@ -41,7 +41,9 @@ permalink: /news/
 				<header class="panel-thumb">
 					<a href="#">
 						<div class="embed-responsive embed-responsive-16by9">
-							{% if item.image %}
+							{% if item.video %}
+							<iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{item.video}}?rel=0" frameborder="0" allowfullscreen></iframe>
+							{% elsif item.image %}
 							<img src="{{site.baseurl}}/images/newsroom/{{item.image}}" class="img-responsive center-block panel-newsroom-image" />
 							{% elsif item.remote_image %}
 							<img src="{{item.remote_image}}" class="img-responsive center-block panel-newsroom-image" />
