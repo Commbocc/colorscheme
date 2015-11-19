@@ -44,7 +44,7 @@ permalink: /news/
 							{% elsif item.remote_image %}
 							<img src="{{item.remote_image}}" class="img-responsive center-block newsroom-image" />
 							{% else %}
-							<i class="fa fa-newspaper-o fa-5x center-block newsroom-image"></i>
+							<i class="fa fa-{%if item.icon%}{{item.icon}}{%else%}newspaper-o{%endif%} fa-5x center-block newsroom-image"></i>
 							{% endif %}
 
 						</div>
@@ -100,7 +100,7 @@ permalink: /news/
 									{% elsif item.remote_image %}
 									<img src="{{item.remote_image}}" class="img-responsive center-block newsroom-image" />
 									{% else %}
-									<i class="fa fa-newspaper-o fa-5x center-block newsroom-image"></i>
+									<i class="fa fa-{%if item.icon%}{{item.icon}}{%else%}newspaper-o{%endif%} fa-5x center-block newsroom-image"></i>
 									{% endif %}
 								</div>
 							</a>
