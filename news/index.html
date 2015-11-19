@@ -3,56 +3,52 @@ layout: no-container
 permalink: /news/
 ---
 
-<div class="jumbotron jumbo-heading jumbo-heading-image" style="background-image: url('{{site.baseurl}}/images/newsroom/image005.jpg');">
-
-	<img src="{{site.baseurl}}/images/newsroom/image005.jpg" class="img-responsive center-block visible-xs-block" />
-
+{% for item in site.categories.news limit:1 %}
+<div class="jumbotron jumbo-heading jumbo-heading-image" style="background-image: url('{{site.baseurl}}/images/newsroom/{{item.image}}');">
+	<img src="{{site.baseurl}}/images/newsroom/{{item.image}}" class="img-responsive center-block visible-xs-block" />
 	<div class="container text-left">
 		<div class="row">
 			<div class="col-md-8">
-
 				<h2>
-					New Recreation Center Opens
+					{{ item.title }}
 				</h2>
-
-				<span class="label label-warning">NOVEMBER 16, 2015</span>
+				<span class="label label-warning">
+					{{ item.date | date: "%B %-d, %Y" }}
+				</span>
 
 				<p>
-					The $2.3 million center honors longtime resident Emanuel P. Johnson
+					{{ item.excerpt }}
 				</p>
 
 				<a href="#" class="btn btn-danger btn-lg">Read More</a>
-
 			</div>
-
 		</div>
-
 	</div>
 </div>
-
+{% endfor %}
 
 <div class="container">
 
 	<div class="row">
 
-		{% for item in site.categories.news %}
+		{% for item in site.categories.news limit:3 offset:1 %}
 		<div class="col-md-4">
-			<div class="panel panel-default panel-newsroom">
-				<header class="panel-thumb">
+			<div class="panel panel-default newsroom">
+				<header class="newsroom-thumb">
 					<a href="#">
 						<div class="embed-responsive embed-responsive-16by9">
 							{% if item.video %}
 							<iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{item.video}}?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
 							{% elsif item.image %}
-							<img src="{{site.baseurl}}/images/newsroom/{{item.image}}" class="img-responsive center-block panel-newsroom-image" />
+							<img src="{{site.baseurl}}/images/newsroom/{{item.image}}" class="img-responsive center-block newsroom-image" />
 							{% elsif item.remote_image %}
-							<img src="{{item.remote_image}}" class="img-responsive center-block panel-newsroom-image" />
+							<img src="{{item.remote_image}}" class="img-responsive center-block newsroom-image" />
 							{% else %}
-							<i class="fa fa-newspaper-o fa-5x center-block panel-newsroom-image"></i>
+							<i class="fa fa-newspaper-o fa-5x center-block newsroom-image"></i>
 							{% endif %}
 
 						</div>
-						<span class="panel-category label label-warning">{{item.cat}}</span>
+						<span class="newsroom-category label label-warning">{{item.cat}}</span>
 					</a>
 				</header>
 				<div class="panel-body">
@@ -87,55 +83,46 @@ permalink: /news/
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-sm-7 col-md-8">
 
-			<article class="media">
-				<div class="media-left">
-					<a href="#">
-						<img class="media-object" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEyMGJlY2MwNiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTIwYmVjYzA2Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 192px; height: 128px;">
-					</a>
-				</div>
-				<div class="media-body">
-					<h4 class="media-heading">Media heading</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				</div>
-			</article>
-			<article class="media">
-				<div class="media-left">
-					<a href="#">
-						<img class="media-object" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEyMGJlY2MwNiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTIwYmVjYzA2Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 192px; height: 128px;">
-					</a>
-				</div>
-				<div class="media-body">
-					<h4 class="media-heading">Media heading</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				</div>
-			</article>
-			<article class="media">
-				<div class="media-left">
-					<a href="#">
-						<img class="media-object" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEyMGJlY2MwNiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTIwYmVjYzA2Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 192px; height: 128px;">
-					</a>
-				</div>
-				<div class="media-body">
-					<h4 class="media-heading">Media heading</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				</div>
-			</article>
-			<article class="media">
-				<div class="media-left">
-					<a href="#">
-						<img class="media-object" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEyMGJlY2MwNiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTIwYmVjYzA2Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 192px; height: 128px;">
-					</a>
-				</div>
-				<div class="media-body">
-					<h4 class="media-heading">Media heading</h4>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+			{% for item in site.categories.news offset:4 %}
+			<article class="thumbnail">
+				<div class="row">
+					<div class="col-md-5 newsroom">
+
+						<div class="newsroom-thumb">
+							<a href="#">
+								<div class="embed-responsive embed-responsive-16by9">
+									{% if item.video %}
+									<iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{item.video}}?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+									{% elsif item.image %}
+									<img src="{{site.baseurl}}/images/newsroom/{{item.image}}" class="img-responsive center-block newsroom-image" />
+									{% elsif item.remote_image %}
+									<img src="{{item.remote_image}}" class="img-responsive center-block newsroom-image" />
+									{% else %}
+									<i class="fa fa-newspaper-o fa-5x center-block newsroom-image"></i>
+									{% endif %}
+								</div>
+							</a>
+						</div>
+
+					</div>
+					<div class="col-md-7">
+						<div class="caption">
+							<h4>
+								<a href="#">
+									{{ item.title }}
+								</a>
+							</h4>
+							{{ item.excerpt }}
+						</div>
+					</div>
 				</div>
 			</article>
+			{% endfor %}
 
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-5 col-md-4">
 
 			<aside class="panel panel-success">
 				<header class="panel-heading">

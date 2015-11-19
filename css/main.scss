@@ -92,28 +92,21 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d3047', endColorstr='#101935',GradientType=0 ); /* IE6-9 */
 }
 
-.panel-newsroom {
+.newsroom {
 
-	// .panel-body-container {
-	// 	display: block;
-	// 	text-overflow: ellipsis;
-	// 	overflow: hidden;
-	// 	max-height: 150px;
-	// }
-
-	.panel-thumb {
+	.newsroom-thumb {
 		position: relative;
-		margin-bottom: -15px;
+		// margin-bottom: -15px;
 		background: $brand-primary-dark;
 
-		.panel-newsroom-image {
+		.newsroom-image {
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translateX(-50%) translateY(-50%);
 		}
 
-		.panel-category {
+		.newsroom-category {
 			position: absolute;
 			top: 8px;
 		}

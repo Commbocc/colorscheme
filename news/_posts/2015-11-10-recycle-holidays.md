@@ -1,5 +1,5 @@
 ---
-title:  "Holiday Trash Schedule and Recycling"
+title:  "Curbside collections, e-cycling, and other tips for the holidays"
 url: "#"
 cat: "Category"
 ---
