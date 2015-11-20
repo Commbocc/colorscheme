@@ -113,6 +113,11 @@ permalink: /news/
 									{{ item.title }}
 								</a>
 							</h4>
+
+							<p class="small text-muted">
+								{{ item.date | date: "%B %-d, %Y | %H:%I %P EST" }}
+							</p>
+
 							{{ item.excerpt }}
 						</div>
 					</div>
@@ -122,9 +127,7 @@ permalink: /news/
 
 		</div>
 		<div class="col-sm-5 col-md-4">
-
 			{% include sidebar-news.html %}
-
 		</div>
 	</div>
 </div>
