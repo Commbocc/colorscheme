@@ -117,6 +117,13 @@
 	}
 }
 
+.embed-responsive.embed-responsive-variable {
+	padding-bottom: 56.25%;
+	@media (min-width: $screen-md-min) {
+		padding-bottom: 75%;
+		// display: none;
+	}
+}
 
 // mapbox nav
 // .nav-mapbox a.active { background: lighten($brand-success, 5%); }
