@@ -100,7 +100,7 @@
 
 	.newsroom-thumb {
 		position: relative;
-		// margin-bottom: -15px;
+		margin-bottom: -15px;
 		background: $brand-primary-dark;
 
 		.newsroom-image {
@@ -114,14 +114,6 @@
 			position: absolute;
 			top: 8px;
 		}
-	}
-}
-
-.embed-responsive.embed-responsive-variable {
-	padding-bottom: 56.25%;
-	@media (min-width: $screen-md-min) {
-		padding-bottom: 75%;
-		// display: none;
 	}
 }
 

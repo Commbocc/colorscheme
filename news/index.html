@@ -88,7 +88,7 @@ permalink: /news/
 
 				{% for item in site.categories.news offset:4 %}
 				<div class="col-sm-6">
-					<article class="thumbnail">
+					<article class="panel panel-default">
 						<div class="newsroom">
 
 							<div class="newsroom-thumb">
@@ -108,7 +108,7 @@ permalink: /news/
 							</div>
 
 						</div>
-						<div class="caption">
+						<div class="panel-body">
 							<h4>
 								<a href="{{ item.url | prepend: site.baseurl }}">
 									{{ item.title }}
@@ -121,6 +121,11 @@ permalink: /news/
 
 							{{ item.excerpt }}
 						</div>
+						<footer class="panel-footer">
+							<a href="#"><i class="fa fa-fw fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-fw fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-fw fa-pinterest"></i></a>
+						</footer>
 					</article>
 				</div>
 				{% endfor %}
