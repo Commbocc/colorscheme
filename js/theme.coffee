@@ -3,6 +3,14 @@
 
 $ ->
 
+	# swipe capable carousel
+	$('.carousel').swiperight ->
+		$(this).carousel 'prev'
+		return
+	$('.carousel').swipeleft ->
+		$(this).carousel 'next'
+		return
+
 	# beacon
 	$('#btn-open').click (event) ->
 		event.preventDefault()
@@ -25,7 +33,7 @@ $ ->
 		$('#bs-example-navbar-collapse-1').collapse('hide')
 		$('html, body').animate { scrollTop: $('body').offset().top - 74 }, 1000
 		return
-	
+
 	$('.to-year').click (event) ->
 		event.preventDefault()
 		$('#bs-example-navbar-collapse-1').collapse('hide')
@@ -48,7 +56,7 @@ $ ->
 
 	# passed meeting dates
 	$('.meeting.media').each ->
-		today = new Date 
+		today = new Date
 		theDate = new Date($(this).data('date'))
 		unless theDate >= today
 			$(this).find('.meeting-rsvp').hide()
