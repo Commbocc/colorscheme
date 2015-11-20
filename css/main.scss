@@ -100,7 +100,7 @@
 
 	.newsroom-thumb {
 		position: relative;
-		margin-bottom: -15px;
+		margin-bottom: -20px;
 		background: $brand-primary-dark;
 
 		.newsroom-image {
@@ -112,7 +112,21 @@
 
 		.newsroom-category {
 			position: absolute;
-			top: 8px;
+			top: 10px;
+			left: -10px;
+
+			&:after {
+				content: "";
+				height: 0;
+				width: 0;
+				display: block;
+				position: absolute;
+				bottom: -10px;
+				left: 0;
+				border-top: 10px solid darken($brand-warning, 15%);
+				border-left: 10px solid transparent;
+
+			}
 		}
 	}
 }

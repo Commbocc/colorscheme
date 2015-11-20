@@ -3,6 +3,7 @@ layout: no-container
 permalink: /news/
 ---
 
+<!-- hero -->
 {% for item in site.categories.news limit:1 %}
 <div class="jumbotron jumbo-heading jumbo-heading-image" style="background-image: url('{{site.baseurl}}/images/newsroom/{{item.image}}');">
 	<img src="{{site.baseurl}}/images/newsroom/{{item.image}}" class="img-responsive center-block visible-xs-block" />
@@ -15,7 +16,6 @@ permalink: /news/
 				<span class="label label-warning">
 					{{ item.date | date: "%B %-d, %Y" }}
 				</span>
-
 				<p>
 					{{ item.excerpt }}
 				</p>
@@ -26,10 +26,10 @@ permalink: /news/
 </div>
 {% endfor %}
 
+<!-- next 3 -->
 <div class="container">
 
 	<div class="row">
-
 		{% for item in site.categories.news limit:3 offset:1 %}
 		<div class="col-md-4">
 			<div class="panel panel-default newsroom">
@@ -71,21 +71,21 @@ permalink: /news/
 			</div>
 		</div>
 		{% endfor %}
-
 	</div>
 
 </div>
 
+<!-- recent news -->
 <div class="jumbotron jumbo-heading-primary">
 	<h2 class="text-center serif" style="color: #fff;">Recent News</h2>
 </div>
 
+<!-- remaining articles -->
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">
 
 			<div class="row">
-
 				{% for item in site.categories.news offset:4 %}
 				<div class="col-sm-6">
 					<article class="panel panel-default">
