@@ -1,6 +1,6 @@
 ---
 title:  "Curbside collections, e-cycling, and other tips for the holidays"
-url: "#"
+layout: "article"
 cat: "Holiday Info"
 ---
 

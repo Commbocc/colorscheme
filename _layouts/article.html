@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<div class="container">
+
+	<header class="">
+		<h1>
+			{{ page.title }}
+			<br>
+			<small>
+				{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
+			</small>
+		</h1>
+
+		<ol class="breadcrumb">
+			<li><a href="/">Home</a></li>
+			<li><a href="/news">News</a></li>
+			<li class="active">{{ page.title }}</li>
+		</ol>
+
+	</header>
+
+	<div class="row">
+
+		<article class="col-sm-7 col-md-8">
+			{{ content }}
+		</article>
+
+		<div class="col-sm-5 col-md-4">
+
+			{% if page.images %}
+			<aside class="panel panel-default">
+				<header class="panel-heading">
+					<h4 class="panel-title">Article Photos</h4>
+				</header>
+				<div class="panel-body">
+					<div id="article-images" class="row">
+						{% for item in page.images %}
+						<div class="col-xs-6">
+							<img src="{{item.img}}" class="img-responsive img-thumbnail" />
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</aside>
+			{% endif %}
+
+			{% include sidebar-news.html %}
+
+			<!-- {#% include most-recent.html %} -->
+		</div>
+	</div>
+</div>

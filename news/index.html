@@ -19,8 +19,7 @@ permalink: /news/
 				<p>
 					{{ item.excerpt }}
 				</p>
-
-				<a href="#" class="btn btn-danger btn-lg">Read More</a>
+				<a href="{{ item.url | prepend: site.baseurl }}" class="btn btn-danger btn-lg">Read More</a>
 			</div>
 		</div>
 	</div>
@@ -35,7 +34,7 @@ permalink: /news/
 		<div class="col-md-4">
 			<div class="panel panel-default newsroom">
 				<header class="newsroom-thumb">
-					<a href="#">
+					<a href="{{ item.url | prepend: site.baseurl }}">
 						<div class="embed-responsive embed-responsive-16by9">
 							{% if item.video %}
 							<iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{item.video}}?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
@@ -53,7 +52,7 @@ permalink: /news/
 				</header>
 				<div class="panel-body">
 					<h3>
-						<a href="#">
+						<a href="{{ item.url | prepend: site.baseurl }}">
 							{{ item.title }}
 						</a>
 					</h3>
@@ -91,7 +90,7 @@ permalink: /news/
 					<div class="col-md-5 newsroom">
 
 						<div class="newsroom-thumb">
-							<a href="#">
+							<a href="{{ item.url | prepend: site.baseurl }}">
 								<div class="embed-responsive embed-responsive-16by9">
 									{% if item.video %}
 									<iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{item.video}}?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
@@ -110,7 +109,7 @@ permalink: /news/
 					<div class="col-md-7">
 						<div class="caption">
 							<h4>
-								<a href="#">
+								<a href="{{ item.url | prepend: site.baseurl }}">
 									{{ item.title }}
 								</a>
 							</h4>
@@ -124,38 +123,7 @@ permalink: /news/
 		</div>
 		<div class="col-sm-5 col-md-4">
 
-			<aside class="panel panel-success">
-				<header class="panel-heading">
-					<h4 class="panel-title">
-						Press Releases
-					</h4>
-				</header>
-				<div class="panel-body">
-					lorem ipsum
-				</div>
-			</aside>
-
-			<aside class="panel panel-success">
-				<header class="panel-heading">
-					<h4 class="panel-title">
-						Download Media
-					</h4>
-				</header>
-				<div class="panel-body">
-					lorem ipsum
-				</div>
-			</aside>
-
-			<aside class="panel panel-success">
-				<header class="panel-heading">
-					<h4 class="panel-title">
-						Events
-					</h4>
-				</header>
-				<div class="panel-body">
-					lorem ipsum
-				</div>
-			</aside>
+			{% include sidebar-news.html %}
 
 		</div>
 	</div>
