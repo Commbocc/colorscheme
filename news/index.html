@@ -82,31 +82,32 @@ permalink: /news/
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-7 col-md-8">
+		<div class="col-md-8">
 
-			{% for item in site.categories.news offset:4 %}
-			<article class="thumbnail">
-				<div class="row">
-					<div class="col-md-5 newsroom">
+			<div class="row">
 
-						<div class="newsroom-thumb">
-							<a href="{{ item.url | prepend: site.baseurl }}">
-								<div class="embed-responsive embed-responsive-variable">
-									{% if item.video %}
-									<iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{item.video}}?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
-									{% elsif item.image %}
-									<img src="{{site.baseurl}}/images/newsroom/{{item.image}}" class="img-responsive center-block newsroom-image" />
-									{% elsif item.remote_image %}
-									<img src="{{item.remote_image}}" class="img-responsive center-block newsroom-image" />
-									{% else %}
-									<i class="fa fa-{%if item.icon%}{{item.icon}}{%else%}newspaper-o{%endif%} fa-5x center-block newsroom-image"></i>
-									{% endif %}
-								</div>
-							</a>
+				{% for item in site.categories.news offset:4 %}
+				<div class="col-sm-6">
+					<article class="thumbnail">
+						<div class="newsroom">
+
+							<div class="newsroom-thumb">
+								<a href="{{ item.url | prepend: site.baseurl }}">
+									<div class="embed-responsive embed-responsive-16by9">
+										{% if item.video %}
+										<iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/{{item.video}}?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+										{% elsif item.image %}
+										<img src="{{site.baseurl}}/images/newsroom/{{item.image}}" class="img-responsive center-block newsroom-image" />
+										{% elsif item.remote_image %}
+										<img src="{{item.remote_image}}" class="img-responsive center-block newsroom-image" />
+										{% else %}
+										<i class="fa fa-{%if item.icon%}{{item.icon}}{%else%}newspaper-o{%endif%} fa-5x center-block newsroom-image"></i>
+										{% endif %}
+									</div>
+								</a>
+							</div>
+
 						</div>
-
-					</div>
-					<div class="col-md-7">
 						<div class="caption">
 							<h4>
 								<a href="{{ item.url | prepend: site.baseurl }}">
@@ -120,13 +121,14 @@ permalink: /news/
 
 							{{ item.excerpt }}
 						</div>
-					</div>
+					</article>
 				</div>
-			</article>
-			{% endfor %}
+				{% endfor %}
+
+			</div>
 
 		</div>
-		<div class="col-sm-5 col-md-4">
+		<div class="col-md-4">
 			{% include sidebar-news.html %}
 		</div>
 	</div>
