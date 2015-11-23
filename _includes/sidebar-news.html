@@ -8,9 +8,11 @@
 			Press Releases
 		</h4>
 	</header>
-	<div class="panel-body">
-		lorem ipsum
-	</div>
+		{% for item in site.categories.news limit:3 %}
+		<a href="#" class="list-group-item">
+			{{item.title}}
+		</a>
+		{% endfor %}
 </aside>
 
 <aside class="panel panel-success">
@@ -19,9 +21,11 @@
 			Download Media
 		</h4>
 	</header>
-	<div class="panel-body">
-		lorem ipsum
-	</div>
+		{% for item in site.categories.news limit:3 %}
+		<a href="#" class="list-group-item">
+			{{item.title}}
+		</a>
+		{% endfor %}
 </aside>
 
 <aside class="panel panel-success">
@@ -30,9 +34,11 @@
 			Events
 		</h4>
 	</header>
-	<div class="panel-body">
-		lorem ipsum
-	</div>
+		{% for item in site.categories.news limit:3 %}
+		<a href="#" class="list-group-item">
+			{{item.title}}
+		</a>
+		{% endfor %}
 </aside>
 
 <aside class="panel panel-success">
