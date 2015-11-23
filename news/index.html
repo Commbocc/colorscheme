@@ -1,5 +1,5 @@
 ---
-layout: no-container
+layout: news
 permalink: /news/
 ---
 
@@ -29,7 +29,7 @@ permalink: /news/
 <!-- next 3 -->
 <div class="container">
 
-	<div class="row">
+	<div class="row auto-height">
 		{% for item in site.categories.news limit:3 offset:1 %}
 		<div class="col-md-4">
 			<div class="panel panel-default newsroom">
@@ -50,7 +50,7 @@ permalink: /news/
 						<span class="newsroom-category label label-warning">{{item.cat}}</span>
 					</a>
 				</header>
-				<div class="panel-body">
+				<div class="panel-body auto-height-elem">
 					<h3>
 						<a href="{{ item.url | prepend: site.baseurl }}">
 							{{ item.title }}
@@ -86,8 +86,12 @@ permalink: /news/
 	<div class="row">
 		<div class="col-md-8">
 
-			<div class="row">
-				{% for item in site.categories.news offset:4 %}
+			{% for item in site.categories.news offset:4 %}
+			{% capture modulo %}{{ forloop.index | modulo: 2 }}{% endcapture %}
+			{% if modulo == '1' %}
+			<div class="row auto-height">
+				{% endif %}
+
 				<div class="col-sm-6">
 					<article class="panel panel-default">
 						<div class="newsroom">
@@ -110,7 +114,7 @@ permalink: /news/
 							</div>
 
 						</div>
-						<div class="panel-body">
+						<div class="panel-body auto-height-elem">
 							<h4>
 								<a href="{{ item.url | prepend: site.baseurl }}">
 									{{ item.title }}
@@ -130,9 +134,11 @@ permalink: /news/
 						</footer>
 					</article>
 				</div>
-				{% endfor %}
 
+				{% if modulo == '0' or forloop.last %}
 			</div>
+			{% endif %}
+			{% endfor %}
 
 		</div>
 		<div class="col-md-4">
