@@ -1,6 +1,6 @@
 # Site settings
 title: Hillsborough County
-tagline: 
+tagline:
 
 description: > # this means to ignore newlines until "email:"
   Write an awesome description for your new site here. You can edit this
@@ -21,3 +21,7 @@ permalink: pretty
 
 paginate: 10
 paginate_path: "/news/page:num"
+
+gems:
+ - jekyll-coffeescript
+ - jekyll-paginate

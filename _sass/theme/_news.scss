@@ -35,3 +35,16 @@
 
 	}
 }
+
+
+#carousel-example-generic {
+
+	.carousel-indicators, .carousel-control { display: none;}
+
+	.carousel-inner {
+		@include make-row();
+		.item {
+			@include make-md-column(4);
+		}
+	}
+}
