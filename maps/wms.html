@@ -1,0 +1,40 @@
+---
+layout: map
+basemap: streets
+permalink: /maps/wms
+---
+
+<script type="text/javascript">
+
+var icons = {
+	west: L.icon({
+		iconUrl: 'https://cdn4.iconfinder.com/data/icons/medical-14/512/7-512.png',
+		iconRetinaUrl: 'https://cdn4.iconfinder.com/data/icons/medical-14/512/7-512.png',
+		iconSize: [25, 25],
+		popupAnchor: [0, -15],
+	})
+};
+
+// var hospitals = L.esri.featureLayer('https://maps.hillsboroughcounty.org/arcgis/rest/services/CoinMap/County_Webmap/MapServer/0').addTo(map);
+
+var hospitals = L.esri.featureLayer(
+	'https://maps.hillsboroughcounty.org/arcgis/rest/services/CoinMap/County_Webmap/MapServer/0',
+	{
+		pointToLayer: function (esriFeature, latlng) {
+			return L.marker(latlng, {
+				icon: icons['west']
+			});
+		}
+	}
+);
+
+addLayer(hospitals, 'Hospitals', 1);
+
+
+var popupTemplate = "<h4>{NAME}</h4>{ADDRESS}";
+
+hospitals.bindPopup(function(e){
+	return L.Util.template(popupTemplate, e.properties)
+});
+
+</script>
